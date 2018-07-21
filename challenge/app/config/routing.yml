@@ -1,3 +1,14 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+student_list:
+  path: /students
+  defaults: {_controller: AppBundle:ClassRoom:list}
+
+
+student_show:
+  path: /student/{id}
+  defaults: { _controller: AppBundle:ClassRoom:show }
+  requirements:
+    id: '\d+'
