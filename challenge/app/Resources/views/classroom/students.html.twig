@@ -5,11 +5,15 @@
 <h1>Liste des étudiants</h1>
 
 <ul>
-  {% for student in students %}
-      <li>{{ student.name }}</li>
+  {% for key, student in students %}
+      <li><a href="{{path('student_show', {'id': key}) }}">{{ student.name }}</a></li>
       {% else %}
           <li>Aucun étudiant.</li>
   {% endfor %}
 </ul>
+
+
+
+<a href="{{ path('student_pdf') }}">Télécharger le planning de la formation</a>
 
 {% endblock %}
