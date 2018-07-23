@@ -12,3 +12,11 @@ student_show:
   defaults: { _controller: AppBundle:ClassRoom:show }
   requirements:
     id: '\d+'
+
+student_pdf:
+  path: /pdf
+  defaults: { _controller: AppBundle:ClassRoom:pdf }
+
+student_pdf_alt:
+  path: /pdf/alt
+  defaults: { _controller: AppBundle:ClassRoom:pdfAlt }

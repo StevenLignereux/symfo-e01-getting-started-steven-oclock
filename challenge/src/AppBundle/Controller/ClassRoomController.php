@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
 use AppBundle\Model\StudentModel;
 
@@ -36,5 +38,24 @@ class ClassRoomController extends Controller
       return $this->render('classroom/student.html.twig', [
         'student' => $student,
       ]);
+    }
+
+    /**
+     * Revoie un pdf
+     */
+    public function pdfAction()
+    {
+      return $this->file('pdf/calendrier-2017-turquoise.pdf');
+    }
+
+    /**
+     * PDF alternatif
+     */
+    public function pdfAltAction()
+    {
+      //Réccupération fichier
+      $file = new File('pdf/calendrier-2017-turquoise.pdf');
+
+      return $this->file($file, 'planning-fusion.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
     }
 }
